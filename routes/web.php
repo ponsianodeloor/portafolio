@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\System\SystemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,6 @@ Route::get('/portafolio', function (){
     return view('portafolio');
 });
 
-Route::get('/system', function (){
-    return view('system.index');
+Route::controller(SystemController::class)->group(function (){
+    Route::get('/system', 'index')->name('system.index');
 });
