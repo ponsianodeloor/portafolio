@@ -312,11 +312,9 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'home',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Profile',
+            'url'         => 'system/profile',
+            'icon'        => 'fas fa-fw fa-user',
         ],
         ['header' => 'account_settings'],
         [
