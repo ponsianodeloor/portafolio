@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Profile;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PortafolioController extends Controller
 {
     public function index(){
+
         $profile = Profile::find(1);
-        return view ('portafolio', compact('profile'));
+        $about = About::find(1);
+        $edad = Carbon::createFromDate($about->date_of_birth)->age;
+
+        return view ('portafolio', compact('profile', 'about', 'edad'));
     }
 
     public function create(){
