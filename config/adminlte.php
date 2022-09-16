@@ -323,7 +323,8 @@ return [
             'submenu' => [
                 [
                     'text' => 'Info',
-                    'url'  => '#',
+                    'url'  => 'system/about',
+                    'icon'  => 'fas fa-fw fa-address-card',
                 ],
                 [
                     'text'    => 'Facts',

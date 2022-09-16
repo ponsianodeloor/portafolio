@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PortafolioController;
 use App\Http\Controllers\System\ProfileController;
+use App\Http\Controllers\System\AboutController;
 use App\Http\Controllers\System\SystemController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,10 @@ Route::controller(ProfileController::class)->group(function (){
     Route::get('/system/profile', 'index')->name('system.profile.index');
 
     Route::put('/system/profile/{id}', 'update')->name('system.profile.update');
+});
+
+Route::controller(AboutController::class)->group(function (){
+    Route::get('/system/about', 'index')->name('system.about.index');
+
+    Route::put('/system/about/{id}', 'update')->name('system.about.update');
 });
