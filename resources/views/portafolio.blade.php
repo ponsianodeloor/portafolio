@@ -46,7 +46,7 @@
 
         <div class="profile">
             <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-            <h1 class="text-light"><a href="index.html">Ponsiano De Loor</a></h1>
+            <h1 class="text-light"><a href="index.html">{{$profile->user->name}}</a></h1>
             <div class="social-links mt-3 text-center">
                 <a href="{{$profile->url_linkedin}}" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
                 <a href="{{$profile->url_github}}" class="github" target="_blank"><i class="bx bxl-github"></i></a>
@@ -72,7 +72,7 @@
     <div class="hero-container" data-aos="fade-in">
         <h1>{{$profile->user->name}}</h1>
         <p>{{$profile->slogan}} <span class="typed" data-typed-items="{{$profile->slogan_dynamic}}"></span></p>
-        <p>If you want edit this page please login</p>
+        <p>{{$profile->message}}</p>
     </div>
 </section><!-- End Hero -->
 

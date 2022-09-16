@@ -4,8 +4,8 @@ namespace App\Http\Controllers\System;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -34,7 +34,23 @@ class ProfileController extends Controller
 
     }
 
-    public function update(Request $request, Profile $profile){
+    public function update(Request $request){
+
+        $profile = Profile::findOrFail($request->id);
+        $profile->url_linkedin = $request->url_linkedin;
+        $profile->url_github = $request->url_github;
+        $profile->url_twitter = $request->url_twitter;
+        $profile->slogan = $request->slogan;
+        $profile->slogan_dynamic = $request->slogan_dynamic;
+        $profile->message = $request->message;
+        $profile->save();
+
+        $user = User::findOrFail($profile->user->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+
+        return redirect()->route('system.profile.index');
 
     }
 
