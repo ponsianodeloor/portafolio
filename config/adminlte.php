@@ -150,8 +150,8 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
 
@@ -314,19 +314,64 @@ return [
         [
             'text'        => 'Profile',
             'url'         => 'system/profile',
-            'icon'        => 'fas fa-fw fa-user',
+            'icon'        => 'fas fa-fw fa-home',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'ADDITIONAL DATA'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text'    => 'About',
+            'icon'    => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'Info',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'Facts',
+                    'icon' => 'fas fa-fw fa-tasks',
+                    'url'     => '#',
+                ],
+                [
+                    'text' => 'Skills',
+                    'icon' => 'fas fa-fw fa-code',
+                    'url'  => '#',
+                ],
+            ],
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text'    => 'Resume',
+            'icon'    => 'fas fa-fw fa-file',
+            'submenu' => [
+                [
+                    'text' => 'Info',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'Education',
+                    'url'     => '#',
+                ],
+                [
+                    'text' => 'Professional Experience',
+                    'url'  => '#',
+                ],
+            ],
         ],
+        ['header' => 'WORK'],
+        [
+            'text' => 'Portafolio',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-cube',
+        ],
+        [
+            'text' => 'Services',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-server',
+        ],
+        [
+            'text' => 'Contact',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-envelope',
+        ],
+        /*
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
@@ -381,6 +426,7 @@ return [
             'icon_color' => 'cyan',
             'url'        => '#',
         ],
+        */
     ],
 
     /*

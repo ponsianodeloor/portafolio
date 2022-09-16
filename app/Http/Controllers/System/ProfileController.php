@@ -4,8 +4,8 @@ namespace App\Http\Controllers\System;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
-use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -14,7 +14,8 @@ class ProfileController extends Controller
     }
 
     public function index(){
-        return view('system.profile.index');
+        $profile = Profile::find(auth()->user()->id);
+        return view('system.profile.index', compact('profile'));
     }
 
     public function create(){

@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\PortafolioController;
 use App\Http\Controllers\System\ProfileController;
 use App\Http\Controllers\System\SystemController;
-use App\Http\Controllers\System\PortafolioController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
