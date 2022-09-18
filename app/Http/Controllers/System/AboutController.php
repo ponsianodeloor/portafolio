@@ -4,6 +4,7 @@ namespace App\Http\Controllers\System;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\Fact;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -50,6 +51,19 @@ class AboutController extends Controller
         $about->save();
 
         return redirect()->route('system.about.index');
+    }
+
+    public function updateFactsDescription(Request $request){
+        $about = About::findOrFail($request->id);
+        $about->about = $request->about;
+        $about->who_are_you = $request->who_are_you;
+        $about->facts_description = $request->facts_description;
+        $about->save();
+
+        $about = About::find(auth()->user()->id);
+        $facts = Fact::find(auth()->user()->id);
+
+        return redirect()->route('system.about.facts.index', compact('about', 'facts'));
     }
 
     public function destroy(About $about){

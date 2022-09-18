@@ -329,7 +329,7 @@ return [
                 [
                     'text'    => 'Facts',
                     'icon' => 'fas fa-fw fa-tasks',
-                    'url'     => '#',
+                    'url'     => 'system/about/facts',
                 ],
                 [
                     'text' => 'Skills',

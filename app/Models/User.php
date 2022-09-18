@@ -34,4 +34,8 @@ class User extends Authenticatable
     public function about(){
         return $this->hasOne(About::class);
     }
+
+    public function facts(){
+        return $this->hasMany(Fact::class);
+    }
 }
