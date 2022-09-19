@@ -4,6 +4,7 @@ use App\Http\Controllers\PortafolioController;
 use App\Http\Controllers\System\ProfileController;
 use App\Http\Controllers\System\AboutController;
 use App\Http\Controllers\System\FactController;
+use App\Http\Controllers\System\SkillController;
 use App\Http\Controllers\System\SystemController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,7 @@ Route::controller(AboutController::class)->group(function (){
 
     Route::put('/system/about/{id}', 'update')->name('system.about.update');
     Route::put('/system/about/facts_description/{id}', 'updateFactsDescription')->name('system.about.updateFactsDescription');
+    Route::put('/system/about/skills_description/{id}', 'updateSkillsDescription')->name('system.about.updateSkillsDescription');
 });
 
 Route::controller(FactController::class)->group(function (){
@@ -40,4 +42,11 @@ Route::controller(FactController::class)->group(function (){
     Route::post('system/about/facts/', 'store')->name('system.about.facts.store');
     Route::delete('system/about/facts/{id}', 'destroy')->name('system.about.facts.destroy');
     //Route::put('system/about/facts/{id}');
+});
+
+Route::controller(SkillController::class)->group(function (){
+    Route::get('/system/about/skills', 'index')->name('system.about.skills.index');
+
+    Route::post('system/about/skills/', 'store')->name('system.about.skills.store');
+    Route::delete('system/about/skills/{id}', 'destroy')->name('system.about.skills.destroy');
 });

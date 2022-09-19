@@ -334,7 +334,7 @@ return [
                 [
                     'text' => 'Skills',
                     'icon' => 'fas fa-fw fa-code',
-                    'url'  => '#',
+                    'url'  => 'system/about/skills',
                 ],
             ],
         ],

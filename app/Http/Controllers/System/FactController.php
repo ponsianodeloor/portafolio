@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class FactController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index(){
 
         $about = About::find(auth()->user()->id);

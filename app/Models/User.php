@@ -38,4 +38,8 @@ class User extends Authenticatable
     public function facts(){
         return $this->hasMany(Fact::class);
     }
+
+    public function skills(){
+        return $this->hasMany(Skill::class);
+    }
 }

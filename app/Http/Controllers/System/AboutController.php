@@ -5,6 +5,7 @@ namespace App\Http\Controllers\System;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Fact;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -64,6 +65,19 @@ class AboutController extends Controller
         $facts = Fact::find(auth()->user()->id);
 
         return redirect()->route('system.about.facts.index', compact('about', 'facts'));
+    }
+
+    public function updateSkillsDescription(Request $request){
+        $about = About::findOrFail($request->id);
+        $about->about = $request->about;
+        $about->who_are_you = $request->who_are_you;
+        $about->skills_description = $request->skills_description;
+        $about->save();
+
+        $about = About::find(auth()->user()->id);
+        $skills = Skill::find(auth()->user()->id);
+
+        return redirect()->route('system.about.skills.index', compact('about', 'skills'));
     }
 
     public function destroy(About $about){

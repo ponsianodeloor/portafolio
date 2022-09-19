@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Fact;
 use App\Models\Profile;
+use App\Models\Skill;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,9 @@ class PortafolioController extends Controller
         $about = About::find(1);
         $edad = Carbon::createFromDate($about->date_of_birth)->age;
         $facts = Fact::where('user_id', '=', 1)->get();
+        $skills = Skill::where('user_id', '=', 1)->get();
 
-        return view ('portafolio', compact('profile', 'about', 'edad', 'facts'));
+        return view ('portafolio', compact('profile', 'about', 'edad', 'facts', 'skills'));
     }
 
     public function create(){
