@@ -344,7 +344,8 @@ return [
             'submenu' => [
                 [
                     'text' => 'Info',
-                    'url'  => '#',
+                    'icon'    => 'fas fa-fw fa-file',
+                    'url'  => 'system/resume',
                 ],
                 [
                     'text'    => 'Education',

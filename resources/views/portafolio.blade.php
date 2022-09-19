@@ -182,19 +182,19 @@
 
             <div class="section-title">
                 <h2>Resume</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p>{{$resume->resume}}</p>
             </div>
 
             <div class="row">
                 <div class="col-lg-6" data-aos="fade-up">
                     <h3 class="resume-title">Sumary</h3>
                     <div class="resume-item pb-0">
-                        <h4>Alex Smith</h4>
-                        <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
+                        <h4>{{$resume->user->name}}</h4>
+                        <p><em>{{$resume->sumary}}</em></p>
                         <ul>
-                            <li>Portland par 127,Orlando, FL</li>
-                            <li>(123) 456-7891</li>
-                            <li>alice.barkley@example.com</li>
+                            <li>{{$resume->address}}</li>
+                            <li>{{$about->phone}}</li>
+                            <li>{{$resume->user->email}}</li>
                         </ul>
                     </div>
 

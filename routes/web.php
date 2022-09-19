@@ -5,6 +5,7 @@ use App\Http\Controllers\System\ProfileController;
 use App\Http\Controllers\System\AboutController;
 use App\Http\Controllers\System\FactController;
 use App\Http\Controllers\System\SkillController;
+use App\Http\Controllers\System\ResumeController;
 use App\Http\Controllers\System\SystemController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,4 +50,10 @@ Route::controller(SkillController::class)->group(function (){
 
     Route::post('system/about/skills/', 'store')->name('system.about.skills.store');
     Route::delete('system/about/skills/{id}', 'destroy')->name('system.about.skills.destroy');
+});
+
+Route::controller(ResumeController::class)->group(function (){
+    Route::get('system/resume', 'index')->name('system.resume.index');
+
+    Route::put('system/resume/{id}', 'update')->name('system.resume.update');
 });
