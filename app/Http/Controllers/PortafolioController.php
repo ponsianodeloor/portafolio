@@ -15,7 +15,7 @@ class PortafolioController extends Controller
         $profile = Profile::find(1);
         $about = About::find(1);
         $edad = Carbon::createFromDate($about->date_of_birth)->age;
-        $facts = Fact::where('user_id', '=', auth()->user()->id)->get();
+        $facts = Fact::where('user_id', '=', 1)->get();
 
         return view ('portafolio', compact('profile', 'about', 'edad', 'facts'));
     }
