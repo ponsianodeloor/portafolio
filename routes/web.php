@@ -6,6 +6,7 @@ use App\Http\Controllers\System\AboutController;
 use App\Http\Controllers\System\FactController;
 use App\Http\Controllers\System\SkillController;
 use App\Http\Controllers\System\ResumeController;
+use App\Http\Controllers\System\EducationController;
 use App\Http\Controllers\System\SystemController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,4 +57,11 @@ Route::controller(ResumeController::class)->group(function (){
     Route::get('system/resume', 'index')->name('system.resume.index');
 
     Route::put('system/resume/{id}', 'update')->name('system.resume.update');
+});
+
+ROute::controller(EducationController::class)->group(function (){
+    Route::get('system/resume/educations', 'index')->name('system.resume.educations.index');
+
+    Route::post('system/resume/educations', 'store')->name('system.resume.educations.store');
+    Route::delete('system/resume/educations/{id}', 'destroy')->name('system.resume.educations.destroy');
 });

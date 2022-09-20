@@ -349,7 +349,8 @@ return [
                 ],
                 [
                     'text'    => 'Education',
-                    'url'     => '#',
+                    'icon' => 'fas fa-fw fa-book',
+                    'url'     => 'system/resume/educations',
                 ],
                 [
                     'text' => 'Professional Experience',
