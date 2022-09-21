@@ -8,6 +8,7 @@ use App\Http\Controllers\System\SkillController;
 use App\Http\Controllers\System\ResumeController;
 use App\Http\Controllers\System\EducationController;
 use App\Http\Controllers\System\ProfessionalExperienceController;
+use App\Http\Controllers\System\PortfolioController;
 use App\Http\Controllers\System\SystemController;
 use Illuminate\Support\Facades\Route;
 
@@ -72,4 +73,10 @@ Route::controller(ProfessionalExperienceController::class)->group(function (){
 
     Route::post('system/resume/professional_experiences', 'store')->name('system.resume.professional_experiences.store');
     Route::delete('system/resume/professional_experiences/{id}', 'destroy')->name('system.resume.professional_experiences.destroy');
+});
+
+Route::controller(PortfolioController::class)->group(function (){
+    Route::get('system/portfolio', 'index')->name('system.portfolio.index');
+
+    Route::put('system/portfolio/{id}', 'update')->name('system.portfolio.update');
 });

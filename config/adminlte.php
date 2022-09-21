@@ -362,7 +362,7 @@ return [
         ['header' => 'WORK'],
         [
             'text' => 'Portafolio',
-            'url'  => 'admin/settings',
+            'url'  => 'system/portfolio',
             'icon' => 'fas fa-fw fa-cube',
         ],
         [
