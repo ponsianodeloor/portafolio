@@ -354,7 +354,8 @@ return [
                 ],
                 [
                     'text' => 'Professional Experience',
-                    'url'  => '#',
+                    'icon' => 'fas fa-fw fa-coffee',
+                    'url'  => 'system/resume/professional_experiences',
                 ],
             ],
         ],

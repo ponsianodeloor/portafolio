@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Education;
 use App\Models\Fact;
+use App\Models\ProfessionalExperience;
 use App\Models\Profile;
 use App\Models\Resume;
 use App\Models\Skill;
@@ -20,9 +22,11 @@ class PortafolioController extends Controller
         $facts = Fact::where('user_id', '=', 1)->get();
         $skills = Skill::where('user_id', '=', 1)->get();
         $resume = Resume::find(1);
+        $educations = Education::where('user_id', '=', 1)->orderBy('date_end', 'DESC')->get();
+        $professional_experiences = ProfessionalExperience::where('user_id', '=', 1)->orderBy('date_end', 'DESC')->get();
 
         return view ('portafolio',
-            compact('profile', 'about', 'edad', 'facts', 'skills', 'resume')
+            compact('profile', 'about', 'edad', 'facts', 'skills', 'resume', 'educations', 'professional_experiences')
         );
     }
 
