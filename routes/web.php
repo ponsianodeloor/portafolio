@@ -9,6 +9,8 @@ use App\Http\Controllers\System\ResumeController;
 use App\Http\Controllers\System\EducationController;
 use App\Http\Controllers\System\ProfessionalExperienceController;
 use App\Http\Controllers\System\PortfolioController;
+use App\Http\Controllers\System\ProjectCategoryController;
+use App\Http\Controllers\System\ProjectController;
 use App\Http\Controllers\System\SystemController;
 use Illuminate\Support\Facades\Route;
 
@@ -79,4 +81,15 @@ Route::controller(PortfolioController::class)->group(function (){
     Route::get('system/portfolio', 'index')->name('system.portfolio.index');
 
     Route::put('system/portfolio/{id}', 'update')->name('system.portfolio.update');
+});
+
+Route::controller(ProjectCategoryController::class)->group(function (){
+
+    Route::post('system/portfolio/project_category/', 'store')->name('system.portfolio.project_categories.update');
+});
+
+Route::controller(ProjectController::class)->group(function (){
+
+    Route::post('system/portfolio/project', 'store')->name('system.portfolio.projects.store');
+    Route::delete('system/portafolio/project/{id}', 'destroy')->name('system.portafolio.projects.destroy');
 });

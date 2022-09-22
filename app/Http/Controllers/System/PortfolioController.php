@@ -4,6 +4,8 @@ namespace App\Http\Controllers\System;
 
 use App\Http\Controllers\Controller;
 use App\Models\Portfolio;
+use App\Models\Project;
+use App\Models\ProjectCategory;
 use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
@@ -14,7 +16,11 @@ class PortfolioController extends Controller
 
     public function index(){
         $portfolio = Portfolio::find(auth()->user()->id);
-        return view('system.portfolio.index', compact('portfolio'));
+        $project_categories = ProjectCategory::all();
+        $projects = Project::where('portfolio_id', '=', auth()->user()->id)->get();
+        $count_projects_x_portfolio_id = Project::where('portfolio_id', '=', auth()->user()->id)->count();
+
+        return view('system.portfolio.index', compact('portfolio', 'project_categories', 'projects', 'count_projects_x_portfolio_id'));
     }
 
     public function create(){
@@ -42,7 +48,6 @@ class PortfolioController extends Controller
 
         $portfolio = Portfolio::find(auth()->user()->id);
         return redirect()->route('system.portfolio.index', compact('portfolio'));
-
     }
 
     public function destroy($id){
