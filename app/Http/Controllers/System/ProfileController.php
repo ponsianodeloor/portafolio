@@ -26,6 +26,13 @@ class ProfileController extends Controller
 
     }
 
+    public function storeProfilePicture(Request $request){
+        $request->validate([
+            'file' => 'required|image|max:2048'
+        ]);
+        return $request->file('file')->store('public/images/profile');
+    }
+
     public function show(Profile $profile){
 
     }

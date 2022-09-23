@@ -31,6 +31,7 @@ Route::controller(SystemController::class)->group(function (){
 Route::controller(ProfileController::class)->group(function (){
     Route::get('/system/profile', 'index')->name('system.profile.index');
 
+    Route::post('/system/profile', 'storeProfilePicture')->name('system.profile.storeProfilePicture');
     Route::put('/system/profile/{id}', 'update')->name('system.profile.update');
 });
 
