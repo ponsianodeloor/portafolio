@@ -6,11 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     public function index(){
@@ -26,12 +27,6 @@ class ProfileController extends Controller
 
     }
 
-    public function storeProfilePicture(Request $request){
-        $request->validate([
-            'file' => 'required|image|max:2048'
-        ]);
-        return $request->file('file')->store('public/images/profile');
-    }
 
     public function show(Profile $profile){
 
@@ -59,6 +54,34 @@ class ProfileController extends Controller
 
         return redirect()->route('system.profile.index');
 
+    }
+
+    public function updateProfileUrlPhoto(Request $request){
+        $request->validate([
+            'file_url_photo' => 'required|image|max:2048'
+        ]);
+        $file_url_photo = $request->file('file_url_photo')->store('public/images/profile');
+        $url_photo = Storage::url($file_url_photo);
+
+        $profile = Profile::findOrFail(auth()->user()->id);
+        $profile->url_photo = $url_photo;
+        $profile->save();
+
+        return view('system.profile.index', compact('profile'));
+    }
+
+    public function updateProfileUrlPhotoBackground(Request $request){
+        $request->validate([
+            'file_url_photo_background' => 'required|image|max:2048'
+        ]);
+        $file_url_photo_background = $request->file('file_url_photo_background')->store('public/images/profile_background');
+        $url_photo_background = Storage::url($file_url_photo_background);
+
+        $profile = Profile::findOrFail(auth()->user()->id);
+        $profile->url_photo_background = $url_photo_background;
+        $profile->save();
+
+        return view('system.profile.index', compact('profile'));
     }
 
     public function destroy(Profile $profile){

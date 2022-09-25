@@ -28,11 +28,12 @@ Route::controller(SystemController::class)->group(function (){
     Route::get('/system', 'index')->name('system.index');
 });
 
-Route::controller(ProfileController::class)->group(function (){
+Route::controller(ProfileController::class)->middleware('auth')->group(function (){
     Route::get('/system/profile', 'index')->name('system.profile.index');
 
-    Route::post('/system/profile', 'storeProfilePicture')->name('system.profile.storeProfilePicture');
     Route::put('/system/profile/{id}', 'update')->name('system.profile.update');
+    Route::put('/system/profile/url_photo/{id}', 'updateProfileUrlPhoto')->name('system.profile.url_photo.update');
+    Route::put('/system/profile/url_photo_background/{id}', 'updateProfileUrlPhotoBackground')->name('system.profile.url_photo_background.update');
 });
 
 Route::controller(AboutController::class)->group(function (){

@@ -45,7 +45,7 @@
     <div class="d-flex flex-column">
 
         <div class="profile">
-            <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+            <img src="{{asset($profile->url_photo)}}" alt="" class="img-fluid rounded-circle">
             <h1 class="text-light"><a href="index.html">{{$profile->user->name}}</a></h1>
             <div class="social-links mt-3 text-center">
                 <a href="{{$profile->url_linkedin}}" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
@@ -68,7 +68,7 @@
 </header><!-- End Header -->
 
 <!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+<section id="hero" class="d-flex flex-column justify-content-center align-items-center" style='background: url("{{asset($profile->url_photo_background)}}") top center;'>
     <div class="hero-container" data-aos="fade-in">
         <h1>{{$profile->user->name}}</h1>
         <p>{{$profile->slogan}} <span class="typed" data-typed-items="{{$profile->slogan_dynamic}}"></span></p>
@@ -89,7 +89,7 @@
 
             <div class="row">
                 <div class="col-lg-4" data-aos="fade-right">
-                    <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
+                    <img src="{{asset($profile->url_photo)}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
                     <h3>{{$about->who_are_you}}</h3>
