@@ -16,4 +16,8 @@ class Project extends Model
     public function category(){
         return $this->belongsTo(ProjectCategory::class);
     }
+
+    public function images(){
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }

@@ -198,7 +198,7 @@
                             <div class="timeline-footer">
                                 <div class="row">
                                     <div class="col-2">
-                                        <a class="btn btn-primary btn-sm btn-block">Edit</a>
+                                        <a class="btn btn-primary btn-sm btn-block" href="{{route('system.portfolio.projects.edit', $project)}}">Edit</a>
                                     </div>
                                     <div class="col-2">
                                         <form action="{{route('system.portafolio.projects.destroy', $project)}}" method="post">

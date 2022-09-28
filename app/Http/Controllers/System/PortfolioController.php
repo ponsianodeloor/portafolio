@@ -17,7 +17,7 @@ class PortfolioController extends Controller
     public function index(){
         $portfolio = Portfolio::find(auth()->user()->id);
         $project_categories = ProjectCategory::all();
-        $projects = Project::where('portfolio_id', '=', auth()->user()->id)->get();
+        $projects = Project::where('portfolio_id', '=', auth()->user()->id)->orderBy('date', 'DESC')->get();
         $count_projects_x_portfolio_id = Project::where('portfolio_id', '=', auth()->user()->id)->count();
 
         return view('system.portfolio.index', compact('portfolio', 'project_categories', 'projects', 'count_projects_x_portfolio_id'));

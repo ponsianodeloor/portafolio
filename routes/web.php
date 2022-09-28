@@ -91,7 +91,10 @@ Route::controller(ProjectCategoryController::class)->group(function (){
 });
 
 Route::controller(ProjectController::class)->group(function (){
+    Route::get('system/portfolio/projects/{id}/edit', 'edit')->name('system.portfolio.projects.edit');
 
-    Route::post('system/portfolio/project', 'store')->name('system.portfolio.projects.store');
-    Route::delete('system/portafolio/project/{id}', 'destroy')->name('system.portafolio.projects.destroy');
+    Route::post('system/portfolio/projects', 'store')->name('system.portfolio.projects.store');
+    Route::post('system/portfolio/projects/{id}/images', 'storeImages')->name('system.portfolio.projects.store.images');
+    Route::put('system/portfolio/projects/{id}', 'update')->name('system.portfolio.projects.update');
+    Route::delete('system/portafolio/projects/{id}', 'destroy')->name('system.portafolio.projects.destroy');
 });
