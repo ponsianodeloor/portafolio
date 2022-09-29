@@ -4,13 +4,19 @@ namespace App\Http\Controllers\System;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
+use App\Models\TypeService;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index(){
         $service = Service::find(auth()->user()->id);
-        return view('system.service.index', compact('service'));
+        $type_services = TypeService::where('service_id', '=', auth()->user()->id)->get();
+        return view('system.service.index', compact('service', 'type_services'));
     }
 
     public function create(){
