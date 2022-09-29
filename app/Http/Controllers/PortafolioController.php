@@ -8,6 +8,8 @@ use App\Models\Fact;
 use App\Models\Portfolio;
 use App\Models\ProfessionalExperience;
 use App\Models\Profile;
+use App\Models\Project;
+use App\Models\ProjectCategory;
 use App\Models\Resume;
 use App\Models\Skill;
 use Carbon\Carbon;
@@ -27,6 +29,7 @@ class PortafolioController extends Controller
         $educations = Education::where('user_id', '=', 1)->orderBy('date_end', 'DESC')->get();
         $professional_experiences = ProfessionalExperience::where('user_id', '=', 1)->orderBy('date_end', 'DESC')->get();
         $portfolio = Portfolio::find(1);
+        $project_categories = ProjectCategory::all();
 
         return view('portafolio',
             compact(
@@ -38,7 +41,9 @@ class PortafolioController extends Controller
                 'resume',
                 'educations',
                 'professional_experiences',
-                'portfolio')
+                'portfolio',
+                'project_categories'
+            )
         );
     }
 
