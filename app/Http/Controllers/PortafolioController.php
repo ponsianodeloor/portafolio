@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\About;
 use App\Models\Education;
 use App\Models\Fact;
 use App\Models\Portfolio;
 use App\Models\ProfessionalExperience;
 use App\Models\Profile;
-use App\Models\Project;
 use App\Models\ProjectCategory;
 use App\Models\Resume;
 use App\Models\Service;
@@ -20,7 +20,7 @@ class PortafolioController extends Controller
 {
     public function index()
     {
-
+        $user = User::find(1);
         $profile = Profile::find(1);
         $about = About::find(1);
         $edad = Carbon::createFromDate($about->date_of_birth)->age;
@@ -35,6 +35,7 @@ class PortafolioController extends Controller
 
         return view('portafolio',
             compact(
+                'user',
                 'profile',
                 'about',
                 'edad',

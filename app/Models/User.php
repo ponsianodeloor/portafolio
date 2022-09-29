@@ -66,4 +66,8 @@ class User extends Authenticatable
     public function service(){
         return $this->hasOne(Service::class);
     }
+
+    public function testimonial(){
+        return $this->hasOne(Testimonial::class);
+    }
 }

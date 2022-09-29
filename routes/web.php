@@ -13,6 +13,7 @@ use App\Http\Controllers\System\ProjectCategoryController;
 use App\Http\Controllers\System\ProjectController;
 use App\Http\Controllers\System\ServiceController;
 use App\Http\Controllers\System\TypeServiceController;
+use App\Http\Controllers\System\TestimonialController;
 use App\Http\Controllers\System\SystemController;
 use Illuminate\Support\Facades\Route;
 
@@ -111,4 +112,10 @@ Route::controller(TypeServiceController::class)->group(function (){
 
     Route::post('system/services/type_services', 'store')->name('system.services.type_services.store');
     Route::delete('system/services/type_services/{id}', 'destroy')->name('system.services.type_services.destroy');
+});
+
+Route::controller(TestimonialController::class)->group(function (){
+    Route::get('system/testimonials', 'index')->name('system.testimonials.index');
+
+    Route::put('system/testimonials/{id}', 'update')->name('system.testimonials.update');
 });
