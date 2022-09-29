@@ -367,12 +367,17 @@ return [
         ],
         [
             'text' => 'Services',
-            'url'  => 'admin/settings',
+            'url'  => 'system/services',
             'icon' => 'fas fa-fw fa-server',
         ],
         [
+            'text' => 'Testimonials',
+            'url'  => 'system/testimonials',
+            'icon' => 'fas fa-fw fa-users',
+        ],
+        [
             'text' => 'Contact',
-            'url'  => 'admin/settings',
+            'url'  => 'system/contact',
             'icon' => 'fas fa-fw fa-envelope',
         ],
         /*

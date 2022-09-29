@@ -62,4 +62,8 @@ class User extends Authenticatable
     public function images(){
         return $this->hasMany(Image::class);
     }
+
+    public function service(){
+        return $this->hasOne(Service::class);
+    }
 }

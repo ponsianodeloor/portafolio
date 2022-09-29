@@ -11,6 +11,7 @@ use App\Http\Controllers\System\ProfessionalExperienceController;
 use App\Http\Controllers\System\PortfolioController;
 use App\Http\Controllers\System\ProjectCategoryController;
 use App\Http\Controllers\System\ProjectController;
+use App\Http\Controllers\System\ServiceController;
 use App\Http\Controllers\System\SystemController;
 use Illuminate\Support\Facades\Route;
 
@@ -97,4 +98,10 @@ Route::controller(ProjectController::class)->group(function (){
     Route::post('system/portfolio/projects/{id}/images', 'storeImages')->name('system.portfolio.projects.store.images');
     Route::put('system/portfolio/projects/{id}', 'update')->name('system.portfolio.projects.update');
     Route::delete('system/portafolio/projects/{id}', 'destroy')->name('system.portafolio.projects.destroy');
+});
+
+Route::controller(ServiceController::class)->group(function (){
+    Route::get('system/services/', 'index')->name('system.services.index');
+
+    Route::put('system/services/{id}', 'update')->name('system.services.update');
 });

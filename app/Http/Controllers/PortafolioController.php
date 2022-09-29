@@ -11,6 +11,7 @@ use App\Models\Profile;
 use App\Models\Project;
 use App\Models\ProjectCategory;
 use App\Models\Resume;
+use App\Models\Service;
 use App\Models\Skill;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ class PortafolioController extends Controller
         $professional_experiences = ProfessionalExperience::where('user_id', '=', 1)->orderBy('date_end', 'DESC')->get();
         $portfolio = Portfolio::find(1);
         $project_categories = ProjectCategory::all();
+        $service = Service::find(1);
 
         return view('portafolio',
             compact(
@@ -42,7 +44,8 @@ class PortafolioController extends Controller
                 'educations',
                 'professional_experiences',
                 'portfolio',
-                'project_categories'
+                'project_categories',
+                'service'
             )
         );
     }
