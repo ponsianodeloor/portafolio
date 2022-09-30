@@ -70,4 +70,8 @@ class User extends Authenticatable
     public function testimonial(){
         return $this->hasOne(Testimonial::class);
     }
+
+    public function contact(){
+        return $this->hasOne(Contact::class);
+    }
 }

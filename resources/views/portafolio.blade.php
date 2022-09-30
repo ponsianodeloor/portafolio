@@ -292,51 +292,31 @@
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">
         <div class="container">
-
             <div class="section-title">
                 <h2>Testimonials</h2>
                 <p>{{$user->testimonial->description}}</p>
             </div>
-
             <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
-
                     @foreach($user->testimonial->personalReferences as $personal_references)
-                    <div class="swiper-slide">
-                        <div class="testimonial-item" data-aos="fade-up">
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                {{$personal_references->testimonial}}
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                            @foreach($personal_references->images as $images_personal_references)
-                            <img src="{{asset($images_personal_references->url_image)}}" class="testimonial-img" alt="">
-                            @endforeach
-                            <h3>{{$personal_references->name}}</h3>
-                            <h4>{{$personal_references->position}} - {{$personal_references->company}}</h4>
-                        </div>
-                    </div><!-- End testimonial item -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-item" data-aos="fade-up">
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    {{$personal_references->testimonial}}
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+                                @foreach($personal_references->images as $images_personal_references)
+                                <img src="{{asset($images_personal_references->url_image)}}" class="testimonial-img" alt="">
+                                @endforeach
+                                <h3>{{$personal_references->name}}</h3>
+                                <h4>{{$personal_references->position}} - {{$personal_references->company}}</h4>
+                            </div>
+                        </div><!-- End testimonial item -->
                     @endforeach
-
-                    <!--
-                    <div class="swiper-slide">
-                        <div class="testimonial-item" data-aos="fade-up">
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                            <h3>Saul Goodman</h3>
-                            <h4>Ceo &amp; Founder</h4>
-                        </div>
-                    </div>
-                    End testimonial item-->
-
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
-
         </div>
     </section><!-- End Testimonials Section -->
 
@@ -346,7 +326,7 @@
 
             <div class="section-title">
                 <h2>Contact</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p>{{$user->contact->description}}</p>
             </div>
 
             <div class="row" data-aos="fade-in">
@@ -356,22 +336,26 @@
                         <div class="address">
                             <i class="bi bi-geo-alt"></i>
                             <h4>Location:</h4>
-                            <p>A108 Adam Street, New York, NY 535022</p>
+                            <p>{{$user->resume->address}}</p>
                         </div>
 
                         <div class="email">
                             <i class="bi bi-envelope"></i>
                             <h4>Email:</h4>
-                            <p>info@example.com</p>
+                            <p>{{$user->email}}</p>
                         </div>
 
                         <div class="phone">
-                            <i class="bi bi-phone"></i>
-                            <h4>Call:</h4>
-                            <p>+1 5589 55488 55s</p>
+                            <a href="https://wa.me/593968894134?text=Hola%20nos%20gustaria%20ponernos%20en%20contacto%20contigo,%20hemos%20visto%20tu%20portfolio%20y%20quisieramos%20contar%20con%20tus%20servicios" target="_blank" ><i class="bi bi-phone"></i></a>
+
+                            <h4>Call - WhatsApp:</h4>
+                            <p>
+                                <a href="https://wa.me/593968894134?text=Hola%20nos%20gustaria%20ponernos%20en%20contacto%20contigo,%20hemos%20visto%20tu%20portfolio%20y%20quisieramos%20contar%20con%20tus%20servicios" target="_blank">{{$user->about->phone}}</a>
+
+                            </p>
                         </div>
 
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                        <iframe src="{{$user->contact->url_google_maps}}" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
                     </div>
 
                 </div>
