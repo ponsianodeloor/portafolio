@@ -14,6 +14,7 @@ use App\Http\Controllers\System\ProjectController;
 use App\Http\Controllers\System\ServiceController;
 use App\Http\Controllers\System\TypeServiceController;
 use App\Http\Controllers\System\TestimonialController;
+use App\Http\Controllers\System\PersonalReferenceController;
 use App\Http\Controllers\System\SystemController;
 use Illuminate\Support\Facades\Route;
 
@@ -118,4 +119,9 @@ Route::controller(TestimonialController::class)->group(function (){
     Route::get('system/testimonials', 'index')->name('system.testimonials.index');
 
     Route::put('system/testimonials/{id}', 'update')->name('system.testimonials.update');
+});
+
+Route::controller(PersonalReferenceController::class)->group(function (){
+
+    Route::post('system/testimonials/personal_references', 'store')->name('system.testimonials.personal_references.store');
 });
