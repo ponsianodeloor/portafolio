@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Email;
 use Mail;
 use App\Mail\NotifyMailable;
 use Illuminate\Http\Request;
@@ -22,6 +23,14 @@ class MailController extends Controller
         ];
         try {
             Mail::to($email)->send(new NotifyMailable($data));
+
+            $email = new Email();
+            $email->name = $request->name;
+            $email->email = $request->email;
+            $email->subject = $request->subject;
+            $email->message = $request->message;
+            $email->save();
+
             return view('mail.sent_successfully');
         }catch (\Exception $exception){
             return view('mail.error', compact('exception'));
