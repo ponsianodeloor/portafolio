@@ -35,13 +35,16 @@
                     </x-slot>
                 </x-adminlte-input>
 
-                <x-adminlte-input name="short_description" label="Short description" placeholder="Short description" label-class="text-lightblue" value="{{$about->short_description}}">
+                <x-adminlte-textarea name="short_description" label="Short description" rows=5
+                                     label-class="text-lightblue"
+                                     igroup-size="sm" placeholder="Insert Short description...">
                     <x-slot name="prependSlot">
-                        <div class="input-group-text">
-                            <i class="fas fa-user text-lightblue"></i>
+                        <div class="input-group-text bg-dark">
+                            <i class="fas fa-lg fa-file-alt text-lightblue"></i>
                         </div>
                     </x-slot>
-                </x-adminlte-input>
+                    {{$about->short_description}}
+                </x-adminlte-textarea>
 
                 <x-adminlte-input name="date_of_birth" label="date_of_birth" placeholder="date_of_birth" label-class="text-lightblue" value="{{$about->date_of_birth}}">
                     <x-slot name="prependSlot">
@@ -91,29 +94,38 @@
                     </x-slot>
                 </x-adminlte-input>
 
-                <x-adminlte-input name="description" label="description" placeholder="description" label-class="text-lightblue" value="{{$about->description}}">
+                <x-adminlte-textarea name="description" label="Description" rows=5
+                                     label-class="text-lightblue"
+                                     igroup-size="sm" placeholder="Insert description...">
                     <x-slot name="prependSlot">
-                        <div class="input-group-text">
-                            <i class="fas fa-user text-lightblue"></i>
+                        <div class="input-group-text bg-dark">
+                            <i class="fas fa-lg fa-file-alt text-lightblue"></i>
                         </div>
                     </x-slot>
-                </x-adminlte-input>
+                    {{$about->description}}
+                </x-adminlte-textarea>
 
-                <x-adminlte-input name="facts_description" label="facts_description" placeholder="facts_description" label-class="text-lightblue" value="{{$about->facts_description}}">
+                <x-adminlte-textarea name="facts_description" label="Fast Description" rows=5
+                                     label-class="text-lightblue"
+                                     igroup-size="sm" placeholder="Insert fast description...">
                     <x-slot name="prependSlot">
-                        <div class="input-group-text">
-                            <i class="fas fa-user text-lightblue"></i>
+                        <div class="input-group-text bg-dark">
+                            <i class="fas fa-lg fa-file-alt text-lightblue"></i>
                         </div>
                     </x-slot>
-                </x-adminlte-input>
+                    {{$about->facts_description}}
+                </x-adminlte-textarea>
 
-                <x-adminlte-input name="skills_description" label="skills_description" placeholder="skills_description" label-class="text-lightblue" value="{{$about->skills_description}}">
+                <x-adminlte-textarea name="skills_description" label="Skill Description" rows=5
+                                     label-class="text-lightblue"
+                                     igroup-size="sm" placeholder="Insert fast description...">
                     <x-slot name="prependSlot">
-                        <div class="input-group-text">
-                            <i class="fas fa-user text-lightblue"></i>
+                        <div class="input-group-text bg-dark">
+                            <i class="fas fa-lg fa-file-alt text-lightblue"></i>
                         </div>
                     </x-slot>
-                </x-adminlte-input>
+                    {{$about->skills_description}}
+                </x-adminlte-textarea>
 
                 <x-adminlte-button label="Save About" theme="primary btn-block" icon="fas fa-key" type="submit"/>
 

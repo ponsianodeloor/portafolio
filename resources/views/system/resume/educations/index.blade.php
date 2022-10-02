@@ -110,13 +110,15 @@
                     </x-slot>
                 </x-adminlte-input>
 
-                <x-adminlte-input name="description" label="Description" placeholder="Description" label-class="text-lightblue">
+                <x-adminlte-textarea name="description" label="Description" rows=5
+                                     label-class="text-lightblue"
+                                     igroup-size="sm" placeholder="Insert description...">
                     <x-slot name="prependSlot">
-                        <div class="input-group-text">
-                            <i class="fas fa-user text-lightblue"></i>
+                        <div class="input-group-text bg-dark">
+                            <i class="fas fa-lg fa-file-alt text-lightblue"></i>
                         </div>
                     </x-slot>
-                </x-adminlte-input>
+                </x-adminlte-textarea>
 
                 <x-adminlte-button label="Save Education" theme="primary btn-block" icon="fas fa-key" type="submit"/>
 
