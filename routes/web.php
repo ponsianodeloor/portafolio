@@ -16,6 +16,7 @@ use App\Http\Controllers\System\TypeServiceController;
 use App\Http\Controllers\System\TestimonialController;
 use App\Http\Controllers\System\PersonalReferenceController;
 use App\Http\Controllers\System\ContactController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\System\SystemController;
 use Illuminate\Support\Facades\Route;
 
@@ -131,4 +132,11 @@ Route::controller(ContactController::class)->group(function (){
     Route::get('system/contact', 'index')->name('system.contact.index');
 
     Route::put('system/contact/{id}', 'update')->name('system.contact.update');
+});
+
+Route::controller(MailController::class)->group(function (){
+    Route::get('/email/sent_successfully', 'sentSuccessfully')->name('mail.sent_successfully');
+    Route::get('/email/error_send', 'errorSend')->name('mail.error_send');
+
+    Route::post('mail', 'send')->name('mail.send');
 });
