@@ -25,6 +25,15 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/privacy_policies', function (){
+    return view('privacy_policies');
+});
+
+
+Route::get('/term_conditions', function (){
+    return view('terms_conditions');
+});
+
 Auth::routes();
 
 /**
