@@ -73,9 +73,9 @@
         <h1>{{$profile->user->name}}</h1>
         <p>{{$profile->slogan}} <span class="typed small" data-typed-items="{{$profile->slogan_dynamic}}"></span></p>
         <p>{{$profile->message}}</p>
-        <a href="" class="btn btn-primary bi bi-facebook"> Login With Facebook</a>
-        <a href="" class="btn btn-danger bi bi-google"> Login With Google</a>
-        <a href="" class="btn btn-light bi bi-github"> Login With GitHub</a>
+        <a href="{{route('login.facebook')}}" class="btn btn-primary bi bi-facebook"> Login With Facebook</a>
+        <a href="{{route('login.google')}}" class="btn btn-danger bi bi-google"> Login With Google</a>
+        <a href="{{route('login.github')}}" class="btn btn-light bi bi-github"> Login With GitHub</a>
         <p>&nbsp;</p>
         <p>This site was developed in Laravel 9</p>
     </div>
@@ -215,7 +215,7 @@
                     @endforeach
                 </div>
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="resume-title">Professional Experience</h3>
+                    <h3 class="resume-title">Professional Experience 6 years 10m</h3>
                     @foreach($professional_experiences as $professional_experience)
                         <div class="resume-item">
                             <h4>{{$professional_experience->position}}</h4>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PortafolioController;
+use App\Http\Controllers\SocialController;
 use App\Http\Controllers\System\ProfileController;
 use App\Http\Controllers\System\AboutController;
 use App\Http\Controllers\System\FactController;
@@ -20,14 +21,27 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\System\SystemController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
+/**
+ * Rutas para el inicio de sesion con redes sociales
+ */
+
+Route::get('/login/facebook', [SocialController::class, 'facebookRedirect'])->name('login.facebook');
+Route::get('/login/facebook/callback', [SocialController::class, 'loginWithFacebook']);
+
+Route::get('/login/google', [SocialController::class, 'googleRedirect'])->name('login.google');
+Route::get('/login/google/callback', [SocialController::class, 'loginWithGoogle']);
+
+Route::get('/login/github', [SocialController::class, 'githubRedirect'])->name('login.github');
+Route::get('/login/github/callback', [SocialController::class, 'loginWithGithub']);
+
 Route::controller(PortafolioController::class)->group(function (){
-    Route::get('portafolio', 'index')->name('portafolio');
+    Route::get('/', 'index')->name('portafolio');
 });
 
 Route::controller(SystemController::class)->group(function (){
