@@ -106,7 +106,7 @@
                         <div class="col-lg-6">
                             <ul>
                                 <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{$about->date_of_birth}}</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span> <a href="{{$about->website}}" target="_blank">{{$about->website}}</a></span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span> <a href="{{$about->website}}" target="_blank">Personal URL</a></span></li>
                                 <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{$about->phone}}</span></li>
                                 <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>{{$about->city}}</span></li>
                             </ul>
@@ -215,11 +215,27 @@
                     @endforeach
                 </div>
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="resume-title">Professional Experience 6 years 10m</h3>
+                    <h3 class="resume-title">Professional Experience {{$time_professional_experiences}}</h3>
                     @foreach($professional_experiences as $professional_experience)
                         <div class="resume-item">
                             <h4>{{$professional_experience->position}}</h4>
-                            <h5>From {{$professional_experience->date_start}}, to: {{$professional_experience->date_end}}</h5>
+                            @php
+                                $fecha_inicial = new DateTime($professional_experience->date_start);
+                                $fecha_final = new DateTime($professional_experience->date_end);
+                                $diff = $fecha_inicial->diff($fecha_final)
+                            @endphp
+                            <h5>
+                                From {{$professional_experience->date_start}},
+                                to: {{$professional_experience->date_end}},
+
+                                @if($diff->format('%y') == "0")
+                                    {{$diff->format('%m m')}}
+                                @elseif($diff->format('%y') == "1")
+                                    {{$diff->format('%y year %m m')}}
+                                @else
+                                    {{$diff->format('%y years %m m')}}
+                                @endif
+                            </h5>
                             <p><em>{{$professional_experience->city}} </em></p>
                             <ul>
                                 <li>
