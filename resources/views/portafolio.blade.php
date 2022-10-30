@@ -78,6 +78,13 @@
         <a href="{{route('login.github')}}" class="btn btn-light bi bi-github"> Login With GitHub</a>
         <p>&nbsp;</p>
         <p>This site was developed in Laravel 9</p>
+
+        <div
+            class="fb-like"
+            data-share="true"
+            data-width="450"
+            data-show-faces="true">
+        </div>
     </div>
 
 </section><!-- End Hero -->
@@ -438,6 +445,26 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '772677743961161',
+            xfbml      : true,
+            version    : 'v15.0'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 </body>
 
