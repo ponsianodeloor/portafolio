@@ -221,17 +221,21 @@
                             <h4>{{$professional_experience->position}}</h4>
                             @php
                                 $fecha_inicial = new DateTime($professional_experience->date_start);
-                                $fecha_final = new DateTime($professional_experience->date_end);
-                                $diff = $fecha_inicial->diff($fecha_final)
+                                $fecha_final = new DateTime($professional_experience->date_end.' + 1 days');
+                                $diff = $fecha_final->diff($fecha_inicial)
                             @endphp
                             <h5>
                                 From {{$professional_experience->date_start}},
                                 to: {{$professional_experience->date_end}},
 
-                                @if($diff->format('%y') == "0")
+                                @if($diff->format('%y') == 0)
                                     {{$diff->format('%m m')}}
-                                @elseif($diff->format('%y') == "1")
+                                @elseif($diff->format('%y') == 1 && $diff->format('%m') == 0)
+                                    {{$diff->format('%y year')}}
+                                @elseif($diff->format('%y') == 1 && $diff->format('%m') > 0)
                                     {{$diff->format('%y year %m m')}}
+                                @elseif($diff->format('%y') > 1 && $diff->format('%m') == 0)
+                                    {{$diff->format('%y years')}}
                                 @else
                                     {{$diff->format('%y years %m m')}}
                                 @endif

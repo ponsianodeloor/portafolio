@@ -60,7 +60,7 @@ class PortafolioController extends Controller
 
         foreach ($professional_experiences as $professional_experience) {
             $fecha_inicial = new DateTime($professional_experience->date_start);
-            $fecha_final = new DateTime($professional_experience->date_end);
+            $fecha_final = new DateTime($professional_experience->date_end.'+ 1 days');
             $diff = $fecha_inicial->diff($fecha_final);
 
             if($diff->format('%y') == "0"){
