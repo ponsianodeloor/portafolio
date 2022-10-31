@@ -285,7 +285,7 @@
                 </div>
             </div>
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-                @foreach($portfolio->projects as $project)
+                @foreach($portfolio->projects->sortByDesc('date') as $project)
                     @foreach($project->images as $images)
                         <div class="col-lg-4 col-md-6 portfolio-item filter-{{strtolower($project->category->project_category)}}">
                             <div class="portfolio-wrap">
