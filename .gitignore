@@ -21,3 +21,6 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
+/.idea/commandlinetools/Laravel_13_4_24_17_31.xml
+/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd
+/public/assets/img/portafolio-ponsano-de-loor.jpeg
