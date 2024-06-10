@@ -72,9 +72,14 @@
         <h1>{{$profile->user->name}}</h1>
         <p>{{$profile->slogan}} <span class="typed small" data-typed-items="{{$profile->slogan_dynamic}}"></span></p>
         <p>{{$profile->message}}</p>
-        <a href="{{route('login.facebook')}}" class="btn btn-primary bi bi-facebook"> Login With Facebook</a>
-        <a href="{{route('login.google')}}" class="btn btn-danger bi bi-google"> Login With Google</a>
-        <a href="{{route('login.github')}}" class="btn btn-light bi bi-github"> Login With GitHub</a>
+
+        <a href="https://keycloak.ponsianodeloor.dev:8443" class="btn btn-light bi bi-key mb-1"> Login With Keycloak</a>
+        <br>
+        <a href="{{route('login.facebook')}}" class="btn btn-primary bi bi-facebook mb-1"> Login With Facebook</a>
+        <br>
+        <a href="{{route('login.google')}}" class="btn btn-danger bi bi-google mb-1"> Login With Google</a>
+        <br>
+        <a href="{{route('login.github')}}" class="btn btn-light bi bi-github mb-1"> Login With GitHub</a>
         <p>&nbsp;</p>
         <p>This site was developed in Laravel 9</p>
 
