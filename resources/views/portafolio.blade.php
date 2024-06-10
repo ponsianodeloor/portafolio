@@ -46,7 +46,6 @@
 
         <div class="profile">
             <img src="{{asset($profile->url_photo)}}" alt="" class="img-fluid rounded-circle">
-            <h1 class="text-light"><a href="index.html">{{$profile->user->name}}</a></h1>
             <div class="social-links mt-3 text-center">
                 <a href="{{$profile->url_linkedin}}" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
                 <a href="{{$profile->url_github}}" class="github" target="_blank"><i class="bx bxl-github"></i></a>

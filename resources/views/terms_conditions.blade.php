@@ -45,14 +45,14 @@
     <div class="d-flex flex-column">
 
         <div class="profile">
-            <img src="{{asset('storage/images/profile/E0CLuZqLtnGFYEi0F0jqbneDxsbKTt95CcoMtv6j.png')}}" alt="" class="img-fluid rounded-circle">
+            <img src="{{asset($profile->url_photo)}}" alt="" class="img-fluid rounded-circle">
             <h1 class="text-light"><a href="index.html">Ponsiano De Loor</a></h1>
 
         </div>
 
         <nav id="navbar" class="nav-menu navbar">
             <ul>
-                <li><a href="https://ponsianodeloor.com" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+                <li><a href="/" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
 
             </ul>
         </nav><!-- .nav-menu -->
@@ -70,7 +70,7 @@
             <div class="section-title">
                 <h2>Terminos y  condiciones</h2>
                 <p>
-                    ¡Bienvenido a ponsianodeloor.com!
+                    ¡Bienvenido a ponsianodeloor.dev!
                 </p>
                 <br>
                 <h3>Cookies</h3>

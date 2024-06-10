@@ -49,10 +49,22 @@ Route::get('/login/google/callback', [SocialController::class, 'loginWithGoogle'
 Route::get('/login/github', [SocialController::class, 'githubRedirect'])->name('login.github');
 Route::get('/login/github/callback', [SocialController::class, 'loginWithGithub']);
 
+
 Route::controller(PortafolioController::class)->group(function (){
     Route::get('/', 'index')->name('portafolio');
 });
 
+Route::controller(PortafolioController::class)->group(function (){
+    Route::get('/privacy-policies', 'privacyPolicy')->name('privacy-policies');
+});
+
+Route::controller(PortafolioController::class)->group(function (){
+    Route::get('/terms-and-conditions', 'termsAndConditions')->name('terms-and-conditions');
+});
+
+/**
+ * Rutas para el uso de system
+ */
 Route::controller(SystemController::class)->group(function (){
     Route::get('/system', 'index')->name('system.index');
 });

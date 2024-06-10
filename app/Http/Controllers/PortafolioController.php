@@ -54,6 +54,35 @@ class PortafolioController extends Controller
         );
     }
 
+    public function privacyPolicy()
+    {
+        $user = User::find(1);
+        $profile = Profile::find(1);
+
+        return view(
+            'privacy_policies',
+            compact(
+                'user',
+                'profile'
+            )
+        );
+    }
+
+    public function termsAndConditions()
+    {
+        $user = User::find(1);
+        $profile = Profile::find(1);
+
+        return view(
+            'terms_conditions',
+            compact(
+                'user',
+                'profile'
+            )
+        );
+    }
+
+
     public function timeProfesionalExperiences($professional_experiences){
         $anios = 0;
         $meses = 0;
