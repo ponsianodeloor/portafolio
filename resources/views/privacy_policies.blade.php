@@ -46,7 +46,6 @@
 
         <div class="profile">
             <img src="{{asset($profile->url_photo)}}" alt="" class="img-fluid rounded-circle">
-            <img src="{{asset('storage/images/profile/E0CLuZqLtnGFYEi0F0jqbneDxsbKTt95CcoMtv6j.png')}}" alt="" class="img-fluid rounded-circle">
             <h1 class="text-light"><a href="index.html">Ponsiano De Loor</a></h1>
 
         </div>
