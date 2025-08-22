@@ -19,8 +19,9 @@ WORKDIR /var/www
 # Copy existing application directory contents
 COPY . .
 
-# Install PHP dependencies
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+# Install PHP dependencies and create the storage symlink
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader \
+    && php artisan storage:link
 
 EXPOSE 8000
 
