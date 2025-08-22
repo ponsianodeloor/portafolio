@@ -7,9 +7,9 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      - "80:80"
     volumes:
       - .:/var/www
     environment:
       APP_ENV: local
-    command: sh -c "php artisan storage:link && php artisan serve --host=0.0.0.0 --port=8000"
+    command: sh -c "php artisan storage:link && php artisan serve --host=0.0.0.0 --port=80"
