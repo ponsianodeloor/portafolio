@@ -18,10 +18,15 @@ WORKDIR /var/www
 
 # Copy existing application directory contents
 COPY . .
-
-# Install PHP dependencies and create the storage symlink
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader \
-    && php artisan storage:link
+# Install PHP dependencies, set up the environment and clear caches
+RUN cp .env.example .env \
+    && composer install --no-interaction --prefer-dist --optimize-autoloader \
+    && php artisan key:generate \
+    && php artisan storage:link \
+    && php artisan config:clear \
+    && php artisan cache:clear \
+    && php artisan route:clear \
+    && php artisan view:clear
 
 EXPOSE 80
 
