@@ -2,7 +2,10 @@ version: '3.8'
 
 services:
   app:
-    build: .
+    image: your-dockerhub-username/portafolio:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     volumes:
