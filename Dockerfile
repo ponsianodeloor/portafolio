@@ -21,6 +21,7 @@ COPY . .
 # Install PHP dependencies, set up the environment and clear caches
 RUN cp .env.example .env \
     && composer install --no-interaction --prefer-dist --optimize-autoloader \
+    && mkdir -p storage/framework/{cache,sessions,views} storage/logs \
     && php artisan key:generate \
     && php artisan storage:link \
     && php artisan config:clear \
