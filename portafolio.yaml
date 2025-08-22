@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portafolio
+  namespace: portafolio
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: portafolio
+  template:
+    metadata:
+      labels:
+        app: portafolio
+    spec:
+      containers:
+        - name: web
+          image: ponwick/portafolio:0.0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet: { path: /portafolio/, port: 80 }
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /portafolio/, port: 80 }
+            initialDelaySeconds: 30
+            periodSeconds: 20
+---
+# Service NodePort para acceso externo
+apiVersion: v1
+kind: Service
+metadata:
+  name: portafolio
+  namespace: organicoffee
+spec:
+  type: NodePort
+  selector:
+    app: portafolio
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      nodePort: 32001

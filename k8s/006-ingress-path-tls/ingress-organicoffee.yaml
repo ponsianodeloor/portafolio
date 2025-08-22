@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portafolio-ingress
+  namespace: portafolio
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "16m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "120"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - k8s-ponsianodeloor.dev
+      secretName: tls-k8s-ponsianodeloor-dev
+  rules:
+    - host: k8s-ponsianodeloor.dev
+      http:
+        paths:
+          - path: /portafolio
+            pathType: Prefix
+            backend:
+              service:
+                name: portafolio
+                port:
+                  number: 80
