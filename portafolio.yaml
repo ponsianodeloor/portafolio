@@ -33,7 +33,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: portafolio
-  namespace: organicoffee
+  namespace: portafolio
 spec:
   type: NodePort
   selector:
@@ -42,4 +42,4 @@ spec:
     - name: http
       port: 80
       targetPort: 80
-      nodePort: 32001
+      nodePort: 32002
