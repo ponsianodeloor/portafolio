@@ -4,7 +4,7 @@ metadata:
   name: portafolio
   namespace: portafolio
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: portafolio
@@ -13,22 +13,49 @@ spec:
       labels:
         app: portafolio
     spec:
+      securityContext:
+        fsGroup: 1000          # útil si storage/logs necesita escritura
       containers:
         - name: web
           image: ponwick/portafolio:0.0.1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
+
+          # 🔑 Variables típicas de Laravel
+          env:
+            - name: APP_ENV
+              value: "production"
+            - name: APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: portafolio-secrets    # crea este Secret
+                  key: APP_KEY
+            - name: APP_URL
+              value: "https://k8s-ponsianodeloor.dev/portafolio"
+            - name: ASSET_URL
+              value: "https://k8s-ponsianodeloor.dev/portafolio"
+
+          # ✅ Probes en raíz del contenedor
           readinessProbe:
-            httpGet: { path: /portafolio/, port: 80 }
-            initialDelaySeconds: 10
+            httpGet: { path: /, port: 80 }
+            initialDelaySeconds: 20
             periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
+
           livenessProbe:
-            httpGet: { path: /portafolio/, port: 80 }
-            initialDelaySeconds: 30
+            httpGet: { path: /, port: 80 }
+            initialDelaySeconds: 60
             periodSeconds: 20
+            timeoutSeconds: 2
+            failureThreshold: 3
+
+          startupProbe:
+            httpGet: { path: /, port: 80 }
+            periodSeconds: 5
+            failureThreshold: 30
 ---
-# Service NodePort para acceso externo
 apiVersion: v1
 kind: Service
 metadata:
