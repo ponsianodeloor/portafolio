@@ -1,6 +1,14 @@
 # portafolio
 Portafolio usando Laravel 9 y Boostrap
 
+## Local development with Docker Compose
+
+```bash
+ docker-compose up
+```
+
+This setup runs PHP-FPM (`ponwick/portafolio:php-fpm`) behind an nginx server using the config at `docker/nginx/default.conf`.
+
 ## Kubernetes deployment
 
 1. **Build and push the image**
