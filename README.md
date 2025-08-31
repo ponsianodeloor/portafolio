@@ -8,7 +8,11 @@ Portafolio usando Laravel 9 y Boostrap
    cp .env.example .env
    docker compose run --rm php php artisan key:generate
    ```
-2. Start the stack:
+2. Create the storage symlink so uploaded files are served from `public/storage`:
+   ```bash
+   docker compose run --rm php php artisan storage:link
+   ```
+3. Start the stack:
    ```bash
    docker compose up --build
    ```

@@ -18,7 +18,7 @@ spec:
       initContainers:
         - name: init-copy
           image: ponwick/portafolio:php-fpm
-          command: ["sh", "-c", "cp -R /var/www/. /var/www/html"]
+          command: ["sh", "-c", "cp -a /var/www/. /var/www/html"]
           volumeMounts:
             - name: app-code
               mountPath: /var/www/html
