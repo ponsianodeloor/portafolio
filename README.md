@@ -3,11 +3,17 @@ Portafolio usando Laravel 9 y Boostrap
 
 ## Local development with Docker Compose
 
-```bash
-docker compose up --build
-```
+1. Copy the example environment file and generate an application key:
+   ```bash
+   cp .env.example .env
+   docker compose run --rm php php artisan key:generate
+   ```
+2. Start the stack:
+   ```bash
+   docker compose up --build
+   ```
 
-This builds the PHP-FPM image (`ponwick/portafolio:php-fpm`) and runs it behind an nginx server using the config at `docker/nginx/default.conf`. The compose file preserves the image's `vendor` directory and `.env` file, so PHP-FPM is ready without extra setup.
+This builds the PHP-FPM image (`ponwick/portafolio:php-fpm`) and runs it behind an nginx server using the config at `docker/nginx/default.conf`. The compose file preserves the image's `vendor` directory, while the `.env` file comes from your working copy.
 
 ## Kubernetes deployment
 

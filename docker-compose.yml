@@ -5,7 +5,7 @@ services:
     volumes:
       - .:/var/www/html
       - /var/www/html/vendor
-      - /var/www/html/.env
+      - ./.env:/var/www/html/.env
     environment:
       APP_ENV: local
 
