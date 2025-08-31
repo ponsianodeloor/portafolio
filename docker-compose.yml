@@ -8,6 +8,8 @@ services:
       - ./.env:/var/www/html/.env
     environment:
       APP_ENV: local
+    expose:
+      - "9000"
 
   nginx:
     image: nginx:1.25-alpine
