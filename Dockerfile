@@ -1,4 +1,4 @@
-FROM php:8.2.4-cli
+FROM php:8.2-fpm
 
 # Install system dependencies and PHP extensions required by Laravel
 RUN apt-get update && apt-get install -y \
@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 # Install Composer 2.6.4
 COPY --from=composer:2.6.4 /usr/bin/composer /usr/local/bin/composer
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 # Copy existing application directory contents
 COPY . .
@@ -33,6 +33,6 @@ RUN mkdir -p storage/framework/cache/data \
     && php artisan route:clear \
     && php artisan view:clear
 
-EXPOSE 80
+EXPOSE 9000
 
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=80"]
+CMD ["php-fpm"]

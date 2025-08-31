@@ -7,7 +7,7 @@ Portafolio usando Laravel 9 y Boostrap
 docker compose up --build
 ```
 
-This builds the PHP-FPM image (`ponwick/portafolio:php-fpm`) and runs it behind an nginx server using the config at `docker/nginx/default.conf`.
+This builds the PHP-FPM image (`ponwick/portafolio:php-fpm`) and runs it behind an nginx server using the config at `docker/nginx/default.conf`. The compose file preserves the image's `vendor` directory and `.env` file, so PHP-FPM is ready without extra setup.
 
 ## Kubernetes deployment
 
