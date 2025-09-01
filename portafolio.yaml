@@ -59,7 +59,7 @@ spec:
               mountPath: /etc/nginx/conf.d
           readinessProbe:
             httpGet:
-              path: /
+              path: /healthz
               port: 80
             initialDelaySeconds: 10
             periodSeconds: 10
@@ -89,11 +89,10 @@ metadata:
   name: portafolio
   namespace: portafolio
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: portafolio
   ports:
     - name: http
       port: 80
       targetPort: 80
-      nodePort: 32002
