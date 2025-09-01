@@ -25,3 +25,10 @@ spec:
                 name: portafolio
                 port:
                   number: 80
+          - path: /(assets/.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: portafolio
+                port:
+                  number: 80
