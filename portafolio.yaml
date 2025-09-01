@@ -29,8 +29,10 @@ spec:
             - -c
             - |
               set -eux
-              chgrp -R 1000 /app/storage /app/bootstrap/cache || true
-              chmod -R g+rwX /app/storage /app/bootstrap/cache || true
+              mkdir -p /app/storage/logs /app/storage/framework/{cache,data,sessions,testing,views}
+              chown -R 33:33 /app/storage /app/bootstrap/cache || true
+              chmod -R 775 /app/storage /app/bootstrap/cache || true
+              : > /app/storage/logs/laravel.log || true
           volumeMounts:
             - name: app-code
               mountPath: /app
