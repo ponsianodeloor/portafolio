@@ -18,7 +18,7 @@ spec:
     - host: k8s-ponsianodeloor.dev
       http:
         paths:
-          - path: ^/portafolio/?(.*)
+          - path: /portafolio/?(.*)
             pathType: ImplementationSpecific
             backend:
               service:
