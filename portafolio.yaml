@@ -17,14 +17,14 @@ spec:
         fsGroup: 1000
       initContainers:
         - name: init-copy
-          image: ponwick/portafolio:php-fpm
+          image: ponwick/portafolio:php-fpm-0.0.1
           command: ["sh", "-c", "cp -a /var/www/. /var/www/html"]
           volumeMounts:
             - name: app-code
               mountPath: /var/www/html
       containers:
         - name: php
-          image: ponwick/portafolio:php-fpm
+          image: ponwick/portafolio:php-fpm-0.0.1
           imagePullPolicy: IfNotPresent
           env:
             - name: APP_ENV

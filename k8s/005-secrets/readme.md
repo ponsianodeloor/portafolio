@@ -7,3 +7,9 @@ Then create the secret:
 kubectl -n portafolio create secret generic portafolio-secrets \
   --from-env-file=./portafolio.env
 ```
+
+Delete the secret:
+
+```bash
+kubectl -n portafolio delete secret portafolio-secrets
+```
